@@ -1,0 +1,129 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/rafae/Desktop/PUC/Modelsim/sequenciais_com_solucoes/ex1
+Effd_ms
+Z1 w1664397038
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z4 8ex1.vhd
+Z5 Fex1.vhd
+l0
+L7
+VWY8BIX[<[hkW9dj7n3k730
+!s100 hRa]aXE<9Jf27>BzUo2iK1
+Z6 OV;C;10.5b;63
+32
+Z7 !s110 1664397232
+!i10b 1
+Z8 !s108 1664397232.000000
+Z9 !s90 -reportprogress|300|-work|work|ex1.vhd|
+Z10 !s107 ex1.vhd|
+!i113 1
+Z11 o-work work
+Z12 tExplicit 1 CvgOpt 0
+Aa1
+R2
+R3
+Z13 DEx4 work 6 ffd_ms 0 22 WY8BIX[<[hkW9dj7n3k730
+l15
+L14
+Vb_Y>nQVIkJ4ZN?_m1N[3J1
+!s100 I36Te1z0kjOFXSj>5Th`:1
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Elatch
+R1
+R2
+R3
+R0
+R4
+R5
+l0
+L36
+VmXCA3Sh`dAI=6BjUC:6:i2
+!s100 l_l:197:?@i:7ZDI;ZRSb3
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Aa1
+R2
+R3
+Z14 DEx4 work 5 latch 0 22 mXCA3Sh`dAI=6BjUC:6:i2
+l44
+L43
+V[3g@RMbkRE?Rb7Pj>f4R80
+!s100 zT3IZ?9`;P^ndAQI9B?<e2
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Etb
+R1
+R2
+R3
+R0
+R4
+R5
+l0
+L66
+VhLe=A]]i0Kz5HjaRXQNQW1
+!s100 TY]BY9BkV]`kfK6l:]bUY3
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Aarch
+R14
+R13
+R2
+R3
+DEx4 work 2 tb 0 22 hLe=A]]i0Kz5HjaRXQNQW1
+l73
+L69
+V=:DgGB9b;AKEZ`OHNE6YI0
+!s100 n:DCn>6kUN87@Fg`P8>^Q0
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
