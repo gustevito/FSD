@@ -7,7 +7,7 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/Users/rafae/Desktop/PUC/Modelsim/sequenciais_com_solucoes/ex1
+Z0 dC:/Users/Gustavo/Desktop/FSD/ex1
 Effd_ms
 Z1 w1664397038
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
@@ -21,9 +21,9 @@ VWY8BIX[<[hkW9dj7n3k730
 !s100 hRa]aXE<9Jf27>BzUo2iK1
 Z6 OV;C;10.5b;63
 32
-Z7 !s110 1664397232
+Z7 !s110 1730927353
 !i10b 1
-Z8 !s108 1664397232.000000
+Z8 !s108 1730927353.000000
 Z9 !s90 -reportprogress|300|-work|work|ex1.vhd|
 Z10 !s107 ex1.vhd|
 !i113 1
