@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dC:/users/gustavo/dev/fsD/nanoCPU_AlunoV0
 Enanocpu
-Z1 w1732191099
+Z1 w1732624178
 Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
 Z3 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
 Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
@@ -23,9 +23,9 @@ V9CHccDC1;IETkBU`1REo21
 !s100 m^edn^DJ]GgScaoKN6@Fh1
 Z8 OV;C;10.5b;63
 32
-Z9 !s110 1732191642
+Z9 !s110 1732624478
 !i10b 1
-Z10 !s108 1732191642.000000
+Z10 !s108 1732624478.000000
 Z11 !s90 -reportprogress|300|nanoCPU.vhd|
 Z12 !s107 nanoCPU.vhd|
 !i113 1
@@ -39,8 +39,8 @@ R5
 Z15 DEx4 work 7 nanocpu 0 22 9CHccDC1;IETkBU`1REo21
 l70
 L53
-VcQ:]MHIWm=VIWEBcj1^2d1
-!s100 cd456jOkQgC]J[abmZc?L2
+V5VUXAnZf^<nInL]^R[_X22
+!s100 1=N<WE9?_Y^MnKNCSQY<P1
 R8
 32
 R9
@@ -51,7 +51,7 @@ R12
 !i113 1
 R13
 Enanocpu_tb
-Z16 w1732191630
+Z16 w1732624463
 R3
 R2
 R4
@@ -65,11 +65,11 @@ Vozd3DjmoARXg`f0a3Va6Y2
 !s100 ]HlS7lDH?jDaEVgB_?7[40
 R8
 32
-Z19 !s110 1732191643
+R9
 !i10b 1
-Z20 !s108 1732191643.000000
-Z21 !s90 -reportprogress|300|nanoTB.vhd|
-Z22 !s107 nanoTB.vhd|
+R10
+Z19 !s90 -reportprogress|300|nanoTB.vhd|
+Z20 !s107 nanoTB.vhd|
 !i113 1
 R13
 Atb
@@ -79,17 +79,17 @@ R2
 R4
 R5
 DEx4 work 10 nanocpu_tb 0 22 ozd3DjmoARXg`f0a3Va6Y2
-l33
+l42
 L9
-V2C]M9OHEo9A]lFPPOAn0W1
-!s100 md5_SM@mc11OP@;QifgT60
+VPPiP@gBJf;7Q3KETl5?UM2
+!s100 ^KDe79O5`Ne2Jl6iCgVPe0
 R8
 32
-R19
+R9
 !i10b 1
+R10
+R19
 R20
-R21
-R22
 !i113 1
 R13
 Ereg16bit

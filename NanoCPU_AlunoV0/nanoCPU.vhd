@@ -78,7 +78,7 @@ begin
 	dataW <= outalu;
 	address <= PC(7 downto 0) when state = sFETCH else ir(11 downto 4);
 	ce <= '1';   -- always enabled
-	we <= '0';   -- complete
+	we <= '1' when state = sWRITE else '0';   -- complete
    
 	-- register bank - 4 general purpose registers
 	-- 
@@ -91,8 +91,8 @@ begin
 
 	wen(0) <= '1' when addReg = "00" and wReg = '1' else '0';
 	wen(1) <= '1' when addReg = "01" and wReg = '1' else '0';
-	wen(2) <= '1' when addReg = "11" and wReg = '1' else '0';
-	wen(3) <= '1' when addReg = "10" and wReg = '1' else '0';
+	wen(2) <= '1' when addReg = "10" and wReg = '1' else '0';
+	wen(3) <= '1' when addReg = "11" and wReg = '1' else '0';
 	
    --complete
    --complete
@@ -105,10 +105,10 @@ begin
 
    -- arithmetic and logic unit 
    -- 
-	outalu <=	RS2  when inst = iWRITE else  -- data to be written is the second register
+	outalu <=	RS2 when inst = iWRITE else  -- data to be written is the second register
 				RS1 XOR RS2  when inst = iXOR else
 				RS1 - RS2 when inst = iSUB else 
-				X"0001" when inst = iLESS and RS1 < RS2 else 
+				X"0001" when inst = iLESS and RS1 < RS2 else
 				RS1 + RS2;    --  default operation: iADD
 
 	less <= x"0001" when RS1 < RS2 else x"0000";
@@ -125,13 +125,18 @@ begin
    -- control block  - manages the execution of instructions
    --++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-	inst <=	iREAD      when ir(15 downto 12) = x"0" else    -- decode the current instruction
-			--complete
+	inst <=	iREAD when ir(15 downto 12) = x"0" else
+			iWRITE when ir(15 downto 12) = x"1" else -- iwrite
+			iXOR when ir(15 downto 12) = x"4" else
+			iSUB when ir(15 downto 12) = x"5" else
+			iADD when ir(15 downto 12) = x"6" else
+			iLESS when ir(15 downto 12) = x"7" else
+
 			iEND;
 
-	wPC <= '1' when state = sREAD --complete
+	wPC <= '1' when state = sREAD or state = sALU or state = sWRITE
 		else '0';
-	wReg <= '1' when state = sREAD  --complete
+	wReg <= '1' when state = sREAD or state = sALU
 		else '0';
 	wIR <= '1' when state = sFETCH else '0';
 
@@ -148,6 +153,8 @@ begin
 						state <= sEND;
 					elsif inst = iREAD then
 						state <= sREAD;
+					elsif inst = iWRITE then
+						state <= sWRITE;
 					else
 						state <= sALU;
 					end if;
