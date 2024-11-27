@@ -138,11 +138,19 @@ begin
 
 			iEND;
 
-	wPC <= '1' when state = sREAD or state = sALU or state = sWRITE
+	wPC <= '1' when state = sREAD
+		or state = sALU
+		or state = sWRITE
+		or state = sJMP
+		or state = sBRANCH 
 		else '0';
-	wReg <= '1' when state = sREAD or state = sALU
+	
+	wReg <= '1' when state = sREAD 
+		or state = sALU 
 		else '0';
-	wIR <= '1' when state = sFETCH else '0';
+	
+	wIR <= '1' when state = sFETCH 
+		else '0';
 
 	process(ck, rst)
 	begin
@@ -155,10 +163,19 @@ begin
 				when sEXE =>
 					if inst = iEND then
 						state <= sEND;
+						
 					elsif inst = iREAD then
 						state <= sREAD;
+
 					elsif inst = iWRITE then
 						state <= sWRITE;
+
+					elsif inst = iJMP then
+						state <= sJMP;
+
+					elsif inst = iBRANCH then
+						state <= sBRANCH;
+
 					else
 						state <= sALU;
 					end if;
