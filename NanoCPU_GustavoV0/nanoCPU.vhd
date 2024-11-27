@@ -64,7 +64,7 @@ architecture NCPU of NanoCPU is
 
     signal IR, RS1, RS2, muxRegIn, outalu, muxPC, PC, less: std_logic_vector(15 downto 0);
 
-   type stateType is (sFETCH, sEXE, sREAD, sWRITE, sALU, sEND); --complete
+   type stateType is (sFETCH, sEXE, sREAD, sWRITE, sJMP, sALU, sEND); --complete
     signal state: stateType;
 
 begin
@@ -118,15 +118,19 @@ begin
 	R_IR: entity work.Reg16bit port map(ck => ck, rst => rst, we => wIR, D => dataR, Q => IR);
 	R_PC: entity work.Reg16bit port map(ck => ck, rst => rst, we => wPC, D => muxPC, Q => PC);
 
-	muxPC <=  -- complete according to the jump conditions
-				PC + 1;
+	muxPC <=  x"00" & IR(11 downto 4) when state = sJMP
+				or (state = sBRANCH and RS2(0) = '1')
+				else PC + 1;
+				
 
    --++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
    -- control block  - manages the execution of instructions
    --++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 	inst <=	iREAD when ir(15 downto 12) = x"0" else
-			iWRITE when ir(15 downto 12) = x"1" else -- iwrite
+			iWRITE when ir(15 downto 12) = x"1" else
+			iJMP when ir(15 downto 12) = x"2" else
+			iBRANCH when ir(15 downto 12) = x"3" else
 			iXOR when ir(15 downto 12) = x"4" else
 			iSUB when ir(15 downto 12) = x"5" else
 			iADD when ir(15 downto 12) = x"6" else
