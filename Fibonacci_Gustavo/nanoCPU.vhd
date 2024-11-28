@@ -130,17 +130,14 @@ begin
    -- control block  - manages the execution of instructions
    --++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-	inst <=	iREAD when ir(15 downto 12) = x"0" else
-			iWRITE when ir(15 downto 12) = x"1" else
-			iJMP when ir(15 downto 12) = x"2" else
-			iBRANCH when ir(15 downto 12) = x"3" else
-			iXOR when ir(15 downto 12) = x"4" else
-			iSUB when ir(15 downto 12) = x"5" else
-			iADD when ir(15 downto 12) = x"6" else
-			iLESS when ir(15 downto 12) = x"7" else
-
-			iINC when ir(15 downto 12) = x"8" else 
-			iDEC when ir(15 downto 12) = x"9" else
+	inst <=	iXOR when ir(15 downto 12) = x"0" else
+			iXOR when ir(15 downto 12) = x"1" else
+			iREAD when ir(15 downto 12) = x"2" else
+			iADD when ir(15 downto 12) = x"3" else
+			iINC when ir(15 downto 12) = x"4" else
+			iLESS when ir(15 downto 12) = x"5" else
+			iBRANCH when ir(15 downto 12) = x"6" else
+			iWRITE when ir(15 downto 12) = x"7" else
 
 			iEND;
 
