@@ -118,9 +118,10 @@ begin
 	R_IR: entity work.Reg16bit port map(ck => ck, rst => rst, we => wIR, D => dataR, Q => IR);
 	R_PC: entity work.Reg16bit port map(ck => ck, rst => rst, we => wPC, D => muxPC, Q => PC);
 
-	muxPC <=  x"00" & IR(11 downto 4) when state = sJMP
-				or (state = sBRANCH and RS2(0) = '1')
-				else PC + 1;
+	muxPC <= x"00" & IR(11 downto 4) & "00000000" when state = sJMP 
+			else x"00" & IR(11 downto 4) & "00000000" when (state = sBRANCH and RS2(0) = '1')
+			else PC + 1;
+
 				
 
    --++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
