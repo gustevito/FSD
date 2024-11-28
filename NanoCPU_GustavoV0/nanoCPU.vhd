@@ -52,7 +52,7 @@ end NanoCPU;
 
 architecture NCPU of NanoCPU is
 
-    type instType is (iREAD, iWRITE, iJMP, iBRANCH, iXOR, iSUB, iADD, iLESS, iEND);
+    type instType is (iREAD, iWRITE, iJMP, iBRANCH, iINC, iDEC, iXOR, iSUB, iADD, iLESS, iEND);
     signal inst: instType;   
 
     type bankType is array(0 to 3) of std_logic_vector(15 downto 0);
@@ -64,7 +64,7 @@ architecture NCPU of NanoCPU is
 
     signal IR, RS1, RS2, muxRegIn, outalu, muxPC, PC, less: std_logic_vector(15 downto 0);
 
-   type stateType is (sFETCH, sEXE, sREAD, sWRITE, sJMP, sBRANCH,sALU, sEND); --complete
+   type stateType is (sFETCH, sEXE, sREAD, sWRITE, sJMP, sBRANCH, sALU, sEND); --complete
     signal state: stateType;
 
 begin
@@ -105,10 +105,12 @@ begin
 
    -- arithmetic and logic unit 
    -- 
-	outalu <=	RS2 when inst = iWRITE else  -- data to be written is the second register
+	outalu <=	RS2 when inst = iWRITE else
 				RS1 XOR RS2  when inst = iXOR else
-				RS1 - RS2 when inst = iSUB else 
+				RS1 - RS2 when inst = iSUB else
 				X"0001" when inst = iLESS and RS1 < RS2 else
+				RS1 + 1 when inst = iINC else
+				RS1 - 1 when inst = iDEC else
 				RS1 + RS2;    --  default operation: iADD
 
 	less <= x"0001" when RS1 < RS2 else x"0000";
@@ -136,6 +138,9 @@ begin
 			iSUB when ir(15 downto 12) = x"5" else
 			iADD when ir(15 downto 12) = x"6" else
 			iLESS when ir(15 downto 12) = x"7" else
+
+			iINC when ir(15 downto 12) = x"8" else 
+			iDEC when ir(15 downto 12) = x"9" else
 
 			iEND;
 
