@@ -28,7 +28,6 @@ architecture TB of NanoCPU_TB is
 		7 => X"10A1",
 		8 => X"F000",
 		9 => X"000A",
-		
 		others => (others => '0')
 	);
 
