@@ -17,7 +17,7 @@ architecture TB of NanoCPU_TB is
 	type memoryArray is array (0 to 255) of std_logic_vector(15 downto 0);
 
 	signal memory: memoryArray :=
-	(
+	(	-- funçao | variavel valorada | executa entre 2 variaveis 
 		0 => X"4000", -- R0 <= 0 (constante)
 		1 => X"4120", -- R1 <= R2 xor R0 (fib1 <= fib2)
 		2 => X"0093", 
