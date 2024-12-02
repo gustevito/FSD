@@ -15,21 +15,29 @@ architecture TB of NanoCPU_TB is
 
 	-- Memory array signal for 256 x 16-bit positions
 	type memoryArray is array (0 to 255) of std_logic_vector(15 downto 0);
-
+	-- nota mental: 1. funçao | 2. variavel valorada | 3. execuçao entre 2 variaveis 
 	signal memory: memoryArray :=
-	(	-- funçao | variavel valorada | executa entre 2 variaveis 
+	(	
 		0 => X"4000", -- R0 <= 0 (constante)
-		1 => X"4120", -- R1 <= R2 xor R0 (fib1 <= fib2)
-		2 => X"0093", 
-		3 => X"6110",
-		4 => X"8000",
-		5 => X"7203",
-		6 => X"3032",
-		7 => X"10A1",
-		8 => X"F000",
-		9 => X"000A",
+		1 => X"4100", -- R1 <= 0
+		2 => X"4200", -- R2 <= 0
+		3 => X"8220", -- R2 <= 0 + 1 = 1
 
-		20 => X"000E", -- N
+		4 => X"1151", -- PMEM[21] = R1
+
+		5 => X"6312", -- R3 = R1 + R2
+		6 => X"6120", -- R1 = R2 + 0
+		7 => X"6230", -- R2 = R3 + 0
+
+		8 => X"0143", -- R3 = PMEM[20]
+		9 => X"9330", -- R3 = R3 - 1
+
+		10 => X"1143", -- PMEM[20] = R3
+		11 => X"7303", -- R3 = 0 < R3 (N>0)
+		12 => X"3043", -- BRANCH p/ linha 4 se R3 = 1
+		13 => X"F000", -- END
+
+		20 => X"000E", -- N (14)
 		21 => X"0000", -- recebe os valores da série
 		others => (others => '0')
 	);
