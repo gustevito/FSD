@@ -18,9 +18,9 @@ architecture TB of NanoCPU_TB is
 
 	signal memory: memoryArray :=
 	(
-		0 => X"4000",
-		1 => X"4111",
-		2 => X"0093",
+		0 => X"4000", -- R0 <= 0 (constante)
+		1 => X"4120", -- R1 <= R2 xor R0 (fib1 <= fib2)
+		2 => X"0093", 
 		3 => X"6110",
 		4 => X"8000",
 		5 => X"7203",
@@ -28,6 +28,9 @@ architecture TB of NanoCPU_TB is
 		7 => X"10A1",
 		8 => X"F000",
 		9 => X"000A",
+
+		20 => X"000E", -- N
+		21 => X"0000", -- recebe os valores da série
 		others => (others => '0')
 	);
 
